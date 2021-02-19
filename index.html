@@ -24,19 +24,74 @@
         body {
             background-image: url("img/bread.png");
             background-repeat: repeat;
+            overflow: hidden;
+            margin: auto 0;
         }
-        .transition, audio {
+        .transition, audio, button {
             transition: .2s;
             -moz-transition: .2s;
             -webkit-transition: .2s;
             -o-transition: .2s;
         }
         
+        audio {
+            position:absolute;
+            top:0;
+            float: top;
+            opacity: 0.3;
+        }
         audio:hover {
             opacity: 0.7;
         }
-        audio {
-            opacity: 0.3;
+        .center {
+            display: flex;
+            align-items: center;
+            justify-items: center;
+            height: 100vh;
+        }
+        .block {
+            background: aliceblue;
+            background: linear-gradient(
+                to right bottom,
+                rgba(255, 91, 219, 0.8),
+                rgba(114, 28, 212, 0.7)
+            );
+            margin: 0 auto;
+            max-width: 900px;
+            width: 75vw;
+            height: 75vh;
+            /* height: 100vh; */
+            border-radius: 25px;
+            z-index: 10;
+            backdrop-filter: blur(2px);
+        }
+        p {
+            color: rgb(240, 255, 243);
+            font-size: 1.5em;
+            padding: 15px;
+        }
+        .backdrop {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50vw;
+            height: 50vw;
+            max-width: 60vh;
+            max-height: 60vh;
+            opacity: .5;
+        }
+        button {
+            cursor: pointer;
+            padding: 20px;
+            border: none;
+            background-color: rgb(36, 197, 36);
+            /* stolen from bootstrap :p */
+            box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+            border-radius: 10px;
+        }
+        button:hover {
+            background-color: rgb(21, 167, 21);
         }
     </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -59,12 +114,42 @@
 
     <!-- Main -->
     <main>
+        <div class="center">
+            <div class="block">
+                <p id="timer"></p>
+                <div style="text-align: center;"><button onclick="test()" title="CTF Key (2/100) is `jK69FoUr20`">Reveal CTF answers</button></div>
+            </div>
+        </div>
         <audio autoplay controls loop>
             <source src="music/theme.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </main>
-    <!-- CTF Key (1/100) is `jK69FoUr20` -->
+    <img src="img/bread.svg" class="backdrop" />
+    <script>
+        let timer = () => {
+        let countDownDate = new Date("Feb 5, 2069 11:00:25").getTime()
+        let date = new Date().getTime()
+        let distance = countDownDate - date
 
+        // Time calculations for days, hours, minutes and seconds
+        let years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365))
+        let days = Math.floor(distance % (1000 * 60 * 60 * 24 * 365) / (1000 * 60 * 60 * 24))
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000)
+        document.getElementById("timer").innerHTML = "Installing Arch in " + years + " years, " + days + " days, " + hours + " hours, "
+        + minutes + " minutes, " + seconds + " seconds. ";
+        }
+
+        // init timer
+        timer()
+        let x = setInterval(timer, 1000)
+
+        // open
+        function test() {
+            window.open("https://www.youtube.com/watch?v=oHg5SJYRHA0&ab_channel=cotter548", '_blank')
+        }
+    </script>
 </body>
 </html>
