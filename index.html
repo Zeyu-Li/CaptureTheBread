@@ -22,7 +22,7 @@
     <!-- css libraries -->
     <style>
         body {
-            background-image: url("img/bread.png");
+            background-image: url("img/newbread.gif");
             background-repeat: repeat;
             overflow: hidden;
             margin: auto 0;
@@ -128,18 +128,18 @@
     <img src="img/bread.svg" class="backdrop" />
     <script>
         let timer = () => {
-        let countDownDate = new Date("Feb 5, 2069 11:00:25").getTime()
-        let date = new Date().getTime()
-        let distance = countDownDate - date
+            let countDownDate = new Date("Feb 5, 2069 11:00:25").getTime()
+            let date = new Date().getTime()
+            let distance = countDownDate - date
 
-        // Time calculations for days, hours, minutes and seconds
-        let years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365))
-        let days = Math.floor(distance % (1000 * 60 * 60 * 24 * 365) / (1000 * 60 * 60 * 24))
-        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-        let seconds = Math.floor((distance % (1000 * 60)) / 1000)
-        document.getElementById("timer").innerHTML = "Installing Arch in " + years + " years, " + days + " days, " + hours + " hours, "
-        + minutes + " minutes, " + seconds + " seconds. ";
+            // Time calculations for days, hours, minutes and seconds
+            let years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365))
+            let days = Math.floor(distance % (1000 * 60 * 60 * 24 * 365) / (1000 * 60 * 60 * 24))
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000)
+            document.getElementById("timer").innerHTML = "Installing Arch in " + years + " years, " + days + " days, " + hours + " hours, "
+            + minutes + " minutes, " + seconds + " seconds. ";
         }
 
         // init timer
